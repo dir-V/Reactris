@@ -1,9 +1,11 @@
 import './App.css';
+import Game from './containers/Game';
+
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello From app</h1>
+      <Game rows={20} columns ={10} />
     </div>
   );
 }
