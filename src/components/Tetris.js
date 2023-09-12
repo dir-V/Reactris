@@ -10,15 +10,16 @@ import Previews from './Previews'
 import { usePlayer } from '../hooks/usePlayer'
 
 const Tetris = ({rows, columns, setGameOver}) => {
-    const [gameStats, addLinesCleared] = useGameStats();
-    const [board, setBoard] = useBoard({ rows, columns });
     const [player, setPlayer, resetPlayer] = usePlayer();
+    const [gameStats, addLinesCleared] = useGameStats();
+    const [board, setBoard] = useBoard({ rows, columns, player, resetPlayer, addLinesCleared });
+    
 
   return(
     <div className='Tetris'>
         <Board board={board} />
         <GameStats gameStats={gameStats} />
-        <Previews tetrominoes={player.tetrominoes}/>
+        <Previews tetrominoes={player.tetrominoes} />
     </div>
   )
   

@@ -5,7 +5,7 @@ import "./Board.css";
 const Board = ({ board }) => {
     const boardStyles = {
       gridTemplateRows: `repeat(${board.size.rows}, 1fr)`,
-      gridTemplateRows: `repeat(${board.size.columns}, 1fr)`
+      gridTemplateColumns: `repeat(${board.size.columns}, 1fr)`
     };
 
 
