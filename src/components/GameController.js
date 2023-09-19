@@ -16,14 +16,23 @@ const GameController = ({ board, gameStats, player, setPlayer, setGameOver}) => 
 
     const onKeyUp =({ code }) => {
         const action = actionForKey(code);
-        if(action == Action.Quit){
-            setGameOver(true);
-        }
     }
     const onKeyDown =({ code }) => {
         const action = actionForKey(code);
+
+        if(action == Action.Pause){
+            if(dropTime){
+                pauseDropTime();
+            }else{
+                resumeDropTime();
+            }
+        }else if(action == Action.Quit){
+            setGameOver(true);
+        }else {
         handleInput({ action} );
-    }
+        }
+    };
+
     const handleInput =({ action }) => {
         playerController({
             action,
